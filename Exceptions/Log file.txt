@@ -1,0 +1,19 @@
+The last trouble was at : [17:40:49]
+
+File 	 : [main.cpp]
+Function : [Deep]
+Line 	 : [34]
+Problem  : [omg what the fuck, false is true]
+
+----From function : [Deep] : string [34] : file [main.cpp]----
+File 	 : [main.cpp]
+Function : [Under_Surface]
+Line 	 : [52]
+Problem  : [Deutschland, Deutschland über alles]
+
+----From function : [Under_Surface] : string [52] : file [main.cpp]----
+File 	 : [main.cpp]
+Function : [Surface]
+Line 	 : [68]
+Problem  : [Нас вырастил Сталин — на верность народу]
+
