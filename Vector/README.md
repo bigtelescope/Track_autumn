@@ -8,3 +8,6 @@ I've realized some thing:
 2)Weird move semantics
 
 3)Reloaded operators of input, output and so on
+
+By the way:
+There is ".hpp" file (included in ".h") that involves implementations of MyVector class functions. It's done so due to impossibility of separate compilation of this library files. 
