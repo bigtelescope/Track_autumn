@@ -1,5 +1,5 @@
 #include <iostream>
-#include "exceptional.h"
+#include "Exceptional.h"
 
 using namespace std;
 
