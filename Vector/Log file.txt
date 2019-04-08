@@ -1,0 +1,22 @@
+The last trouble was at : [10:39:52]
+
+File 	 : 	 [Vector.hpp]
+Function : 	 [operator[]]
+Line 	 :	 [104]
+Problem  :	 [2]
+Description :	 [There no an item with such number]
+
+----From function : [operator[]] : string [104] : file [Vector.hpp]----
+File 	 : 	 [addition.cpp]
+Function : 	 [Deep]
+Line 	 :	 [17]
+Problem  :	 [5]
+Description :	 [something wrong:(]
+
+----From function : [Deep] : string [17] : file [addition.cpp]----
+File 	 : 	 [addition.cpp]
+Function : 	 [pew]
+Line 	 :	 [32]
+Problem  :	 [5]
+Description :	 [subscribe to @bigtelescope]
+
