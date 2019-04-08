@@ -16,12 +16,12 @@ class MyVector
 	private:
 		int 			size;
 		DataT*			data;
-		std::fstream 	file;
+		std::fstream 		file;
 
 	public:
 		MyVector		();
 		MyVector		(int init_size);
-		MyVector        (const MyVector& vector); 	//"Copying constructor"
+		MyVector        	(const MyVector& vector); 	//"Copying constructor"
 		MyVector		(MyVector && vector);		//"Move semantics"
 		~MyVector		();
 
@@ -37,16 +37,17 @@ class MyVector
 		MyVector<DataT> &		operator=	(const MyVector<DataT> & rhs);
 		MyVector<DataT> &		operator=	(MyVector && rhs);
 		const DataT &			operator[]	(int index) const;
-		DataT &					operator[]	(int index);
+		DataT &				operator[]	(int index);
 		MyVector<DataT>			operator+	(const MyVector & rhs);
 		MyVector<DataT>			operator-	(const MyVector & rhs);
 		MyVector<DataT>			operator*	(DataT number);
 		MyVector<DataT>			operator/	(DataT number);
 		
 		//This one shows a vector in a beautiful way
-		void 					Show 		(const MyVector<DataT> & V); 
+		void 				Show 		(const MyVector<DataT> & V);
+ 
 		//This one swaps *this object and argument V by a deep way
-		void 					VSwap		(MyVector & V);
+		void 				VSwap		(MyVector & V);
 };
 
 #include "Vector.hpp"

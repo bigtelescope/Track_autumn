@@ -29,7 +29,7 @@ enum ERRORS
 class YourEx
 {
 	private:
-		int		 	error;		// Number
+		int		error;		// Number
 		int 		line;		// Line of an error
 		string		file;		// File of an error
 		string		function;	// Function with an error
@@ -44,7 +44,7 @@ class YourEx
 
 		//This one is used in throwing
 		YourEx(int err, string message, YourEx * ptr,\
-					int lin, string doc, string func);
+				int lin, string doc, string func);
 
 		void WriteLog();
 };
@@ -76,7 +76,7 @@ void YourEx::WriteLog()
 	if(prev != nullptr)
 	{
 		log.open("Log file.txt", fstream::app);
-		log << "----From function : [" 	<< prev->function 	<< "] : ";
+		log << "----From function : [" 			<< prev->function 	<< "] : ";
 		log << "string [" 				<< prev->line 		<< "] : ";
 		log << "file [" 				<< prev->file 		<< "]----" << endl;
 	}
