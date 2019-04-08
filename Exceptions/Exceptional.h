@@ -3,8 +3,12 @@
 
 using namespace std;
 
+#define PAGE_SIZE 1024
+
 #define FTHROW(ERR, MESSAGE)\
 		throw new YourEx(ERR, MESSAGE, nullptr, __LINE__, __FILE__, __FUNCTION__)
+
+#define KICK 1;
 
 #define THROW(ERR, MESSAGE, PTR1)\
 		throw new YourEx(ERR, MESSAGE, PTR1, __LINE__, __FILE__, __FUNCTION__)
@@ -24,30 +28,38 @@ enum ERRORS
 class YourEx
 {
 	private:
+
+		inline static char buff[PAGE_SIZE];
+
 		int		 	error;
 		int 		line;
 		string		file;
 		string		function;
 		string		problem;
-		YourEx*		next;
+		YourEx*		prev;
 		fstream		log;
+
 
 	public:
 		YourEx();
 		~YourEx();
-		YourEx(int error, string message, YourEx * ptr,\
+		YourEx(int err, string message, YourEx * ptr,\
 				int lin, string doc, string func);
 
 		void WriteLog();
+		char * Buff();
+
+		//void* operator new(size_t sz);
+		//void operator delete(size_t sz);
 };
 
 YourEx::YourEx() :
 	error 		(0),
-	line		(17),
+	line		(0),
 	file		(""),
 	function 	(""),
 	problem 	(""),
-	next		(nullptr)
+	prev		(nullptr)
 {}
 
 YourEx::~YourEx()
@@ -60,16 +72,16 @@ YourEx::YourEx(int err, string message, YourEx * ptr,\
 	file		(doc),
 	function 	(func),
 	problem 	(message),
-	next		(ptr)
+	prev		(ptr)
 {}
 
 void YourEx::WriteLog()
 {
-	if(next != nullptr)
+	if(prev != nullptr)
 	{	log.open("Log file.txt", fstream::app);
-		log << "----From function : [" << next->function << "] : ";
-		log << "string [" << next->line << "] : ";
-		log << "file [" << next->file << "]----" << endl;
+		log << "----From function : [" << prev->function << "] : ";
+		log << "string [" << prev->line << "] : ";
+		log << "file [" << prev->file << "]----" << endl;
 	}
 	else
 	{
@@ -84,4 +96,17 @@ void YourEx::WriteLog()
 	log.close();
 
 	return;
+}
+
+char * YourEx::Buff()
+{
+	return buff;
+}
+
+inline static char buff[PAGE_SIZE];
+
+void * operator new(size_t size, YourEx ptr)
+{
+	//return ptr.Buff();
+	return buff;
 }
