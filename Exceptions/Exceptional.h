@@ -3,12 +3,8 @@
 
 using namespace std;
 
-#define PAGE_SIZE 1024
-
 #define FTHROW(ERR, MESSAGE)\
 		throw new YourEx(ERR, MESSAGE, nullptr, __LINE__, __FILE__, __FUNCTION__)
-
-#define KICK 1;
 
 #define THROW(ERR, MESSAGE, PTR1)\
 		throw new YourEx(ERR, MESSAGE, PTR1, __LINE__, __FILE__, __FUNCTION__)
@@ -28,9 +24,6 @@ enum ERRORS
 class YourEx
 {
 	private:
-
-		inline static char buff[PAGE_SIZE];
-
 		int		 	error;
 		int 		line;
 		string		file;
@@ -47,10 +40,6 @@ class YourEx
 				int lin, string doc, string func);
 
 		void WriteLog();
-		char * Buff();
-
-		//void* operator new(size_t sz);
-		//void operator delete(size_t sz);
 };
 
 YourEx::YourEx() :
@@ -96,17 +85,4 @@ void YourEx::WriteLog()
 	log.close();
 
 	return;
-}
-
-char * YourEx::Buff()
-{
-	return buff;
-}
-
-inline static char buff[PAGE_SIZE];
-
-void * operator new(size_t size, YourEx ptr)
-{
-	//return ptr.Buff();
-	return buff;
 }
