@@ -1,13 +1,20 @@
 #include "Vector.h"
+#include "addition.cpp"
+
+using namespace std;
+
+void pew();	 // One calls Deep()
+void Deep(); // Here is a mistake
 
 int main()
 {
-	MyVector<int> b(2);
-	std::cin >> b;
-	MyVector<int> a(2);
-	a = b / (-1);
-	MyVector<int> c(2);
-	c = 3 * b + a;
-	std::cout << c;
+	try
+	{
+		pew();
+	}
+	catch(YourEx * ex)
+	{
+		ex->WriteLog();
+	}
 	return 0;
 }

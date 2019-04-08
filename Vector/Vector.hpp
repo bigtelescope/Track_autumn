@@ -91,12 +91,18 @@ MyVector<DataT> & MyVector<DataT>::operator=(MyVector<DataT> && rhs)
 template <typename DataT>
 const DataT & MyVector<DataT>::operator[](int index) const
 {
+	if(index > size)	
+		FTHROW(INVALID_ARGUMENT, "There no an item with such number");
+
 	return data[index];
 }
 
 template <typename DataT>
 DataT & MyVector<DataT>::operator[](int index)
 {
+	if(index > size)	
+		FTHROW(INVALID_ARGUMENT, "There no an item with such number");
+
 	return data[index];
 }
 
@@ -150,8 +156,10 @@ void MyVector<DataT>::Show(const MyVector<DataT> & V)
 	if(size)
 	{
 		std::cout << "(";
+		
 		for(int i = 0; i < size - 1; i++)
 			std::cout << data[i] << ", ";
+
 		std::cout << data[size -1] << ") " << std::endl;
 	}
 }

@@ -8,6 +8,8 @@
 #include <fstream>
 #include <cstring>
 
+#include "Exceptional.h"
+
 template <typename DataT>
 class MyVector
 {
@@ -19,8 +21,8 @@ class MyVector
 	public:
 		MyVector		();
 		MyVector		(int init_size);
-		MyVector        (const MyVector& vector);
-		MyVector		(MyVector && vector);
+		MyVector        (const MyVector& vector); 	//"Copying constructor"
+		MyVector		(MyVector && vector);		//"Move semantics"
 		~MyVector		();
 
 		template <typename Data>
@@ -41,7 +43,9 @@ class MyVector
 		MyVector<DataT>			operator*	(DataT number);
 		MyVector<DataT>			operator/	(DataT number);
 		
-		void 					Show 		(const MyVector<DataT> & V);	
+		//This one shows a vector in a beautiful way
+		void 					Show 		(const MyVector<DataT> & V); 
+		//This one swaps *this object and argument V by a deep way
 		void 					VSwap		(MyVector & V);
 };
 
