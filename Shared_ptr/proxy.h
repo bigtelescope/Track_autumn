@@ -20,11 +20,11 @@ class proxy
 
 		proxy<ObjT>& 		operator = (const proxy<ObjT> &);
 		const ObjT& 		operator * () const;
-		ObjT& 				operator * ();
-		const ObjT*			operator -> () const;
-		ObjT*				operator -> ();
+		ObjT& 			operator * ();
+		const ObjT*		operator -> () const;
+		ObjT*			operator -> ();
 
-		int 				amount();
+		int 			amount();
 };
 
 template <typename ObjT>
