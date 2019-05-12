@@ -1,6 +1,10 @@
 #ifndef TRASH_H
 #define TRASH_H
-/*
+
+#include "game_obj.h"
+
+#define TRASH_RADIUS 20
+
 class Trash : public GameObject
 {
 	private :
@@ -8,22 +12,13 @@ class Trash : public GameObject
 
 	public :
 
-		Trash(int x, int y);
+		Trash 	(int x, int y);
+		~Trash 	();
 
-		sf::CircleShape & getCircle();
+		sf::CircleShape & 	getCircle 	();
+		
+		const int 			getCircleX 	();
+		const int 			getCircleY 	();
 };
 
-Trash::Trash(int x, int y) :
-	GameObject(x, y)
-{
-	circle = sf::CircleShape(TRASH_RADIUS);
-	circle.setFillColor(sf::Color::Red);
-	circle.setPosition(x_null - TRASH_RADIUS, y_null - TRASH_RADIUS);
-}
-
-sf::CircleShape & Trash::getCircle()
-{
-	return circle;
-}
-*/
 #endif
