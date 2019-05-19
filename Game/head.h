@@ -12,7 +12,7 @@
 #define SCREEN_HEIGHT 	720
 #define ZERO			0
 
-#define SPEED 			100
+#define SPEED 			150
 
 #define EARTH_RADIUS 	70
 #define EARTH_X 		670
@@ -22,7 +22,11 @@
 
 #define FAST_TIME(ARG) (ARG).asSeconds() * SPEED
 
-int trashMove		(Trash &, sf::Time &);
-void storeCreate	(std::vector<Trash> &);
+int satelliteMove			(Satellite &, sf::Clock &);
+int trashMove				(Trash &, sf::Time &);
+void bullet_move			(std::vector<Bullet> &, sf::Vector2i &, Satellite &, sf::Time &);
+
+void storeCreate			(std::vector<Trash> &);
+void bullet_storeCreate 	(std::vector<Bullet> &);
 
 #endif
