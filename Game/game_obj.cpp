@@ -16,22 +16,22 @@ GameObject::~GameObject()
 	is_alive 	= DEAD;
 }
 
-const int GameObject::getX()
+const int 	GameObject::getX_Null()
 {
 	return x_null;
 }
 
-const int GameObject::getY()
+const int 	GameObject::getY_Null()
 {
 	return y_null;
 }
 
-const int GameObject::isAlive()
+const int 	GameObject::isAlive()
 {
 	return is_alive;
 }
 
-void GameObject::killObject()
+void 		GameObject::killObject()
 {
 	is_alive = DEAD;
 }
