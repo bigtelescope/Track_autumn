@@ -18,8 +18,8 @@ class proxy
 		proxy	(const proxy<ObjT> &);
 		~proxy	();
 
-		proxy<ObjT>& 		operator = (const proxy<ObjT> &);
-		const ObjT& 		operator * () const;
+		proxy<ObjT>& 	operator = (const proxy<ObjT> &);
+		const ObjT& 	operator * () const;
 		ObjT& 			operator * ();
 		const ObjT*		operator -> () const;
 		ObjT*			operator -> ();
