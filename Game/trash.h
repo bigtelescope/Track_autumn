@@ -9,6 +9,8 @@ class Trash : public GameObject
 {
 	private :
 		sf::CircleShape circle;
+		sf::Texture 	texture;
+		sf::Sprite		sprite;
 
 	public :
 
