@@ -3,5 +3,7 @@
 
 #include "game_obj.h"
 #include "trash.h"
+#include "satellite.h"
+#include "bullet.h"
 
 #endif
