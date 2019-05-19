@@ -1,25 +1,5 @@
 #include "head.h"
 
-int trashMove(Trash & trash, sf::Time & time)
-{
-	if(abs(trash.getCircleX() + TRASH_RADIUS - EARTH_X) < EARTH_RADIUS &&
-	   abs(trash.getCircleY() + TRASH_RADIUS - EARTH_Y) < EARTH_RADIUS)
-	{
-		trash.killObject();
-		return 0;
-	}
-
-	int delta_x = EARTH_X - trash.getX();
-	int delta_y = EARTH_Y - trash.getY();
-
-	float radius = sqrt(delta_x * delta_x + delta_y * delta_y);
-
-	trash.getCircle().setPosition(trash.getX() + (delta_x / radius) * FAST_TIME(time),
-								  trash.getY() + (delta_y / radius) * FAST_TIME(time));
-	
-	return 0;
-}
-
 void storeCreate(std::vector<Trash> & vector)
 {
 	for(int i = 0; i < STORE_SIZE / 4; i++)
@@ -34,5 +14,14 @@ void storeCreate(std::vector<Trash> & vector)
 		vector.push_back(trash_two);
 		vector.push_back(trash_three);
 		vector.push_back(trash_four);
+	}
+}
+
+void bullet_storeCreate (std::vector<Bullet> & bullet_vector)
+{
+	for(int i = 0; i < STORE_SIZE; i++)
+	{
+		Bullet bullet(0, 0);
+		bullet_vector.push_back(bullet);
 	}
 }
