@@ -15,8 +15,8 @@
 #define SPEED 			150
 
 #define EARTH_RADIUS 	70
-#define EARTH_X 		670
-#define EARTH_Y 		360
+#define EARTH_X 		650
+#define EARTH_Y 		350
 
 #define STORE_SIZE 		64
 
@@ -26,7 +26,7 @@ int satelliteMove			(Satellite &, sf::Clock &);
 int trashMove				(Trash &, sf::Time &);
 void bullet_move			(std::vector<Bullet> &, sf::Vector2i &, Satellite &, sf::Time &);
 
-void storeCreate			(std::vector<Trash> &);
+void storeCreate			(std::vector<Trash> &, sf::Texture &);
 void bullet_storeCreate 	(std::vector<Bullet> &);
 
 #endif
