@@ -3,7 +3,10 @@
 
 #include "game_obj.h"
 
-#define SATELLITE_RADIUS 		25
+#define SPRITE_X	559
+#define SPRITE_Y	243
+
+#define SCALE	 	0.28f
 
 #define SATELLITE_START_X 		645
 #define SATELLITE_START_Y 		334
@@ -24,20 +27,18 @@
 class Satellite : public GameObject
 {
 	private :
-		sf::CircleShape circle;
+		sf::Texture 	texture;
+		sf::Sprite 		sprite;
 		float 			orbit;
 		float 			delta;
 		float 			beta;
 
 	public :		
 
-		 Satellite 			(int x, int y);
+		 Satellite 			(int x, int y, float scale);
 		~Satellite	       	();
 
-		sf::CircleShape & 	getCircle 	();
-
-		const int 			getCircleX 	() const;
-		const int 			getCircleY 	() const;
+		sf::Sprite 		& 	getSprite 	();
 
 		const float 		showOrbit 	() const;
 		float & 			getOrbit	();

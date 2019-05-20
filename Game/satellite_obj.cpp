@@ -4,31 +4,23 @@
 #include "satellite.h"
 #include "game_obj.h"
 
-Satellite::Satellite(int x, int y) :
+Satellite::Satellite(int x, int y, float scale) :
 	GameObject	(x, y),
 	orbit 		(START_ORBIT),
 	delta 		(START_DELTA),
 	beta 		(START_BETA)
 
 {
-	circle = sf::CircleShape(SATELLITE_RADIUS);
-	circle.setFillColor(sf::Color::Blue);
-	circle.setPosition(x_null - SATELLITE_RADIUS, y_null - SATELLITE_RADIUS);
+	texture.loadFromFile("pictures/tesla.png");
+
+	sprite.setTexture	(texture);
+	sprite.setPosition	(x_null, y_null);
+	sprite.setScale		(scale, scale);
 }
 
-sf::CircleShape & Satellite::getCircle()
+sf::Sprite 	& Satellite::getSprite()
 {
-	return circle;
-}
-
-const int Satellite::getCircleX() const
-{
-	return circle.getPosition().x;
-}
-
-const int Satellite::getCircleY() const
-{
-	return circle.getPosition().y;
+	return sprite;
 }
 
 const float Satellite::showOrbit() const

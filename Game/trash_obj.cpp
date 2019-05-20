@@ -2,7 +2,6 @@
 #define TRASH_METHODS_H
 
 #include "trash.h"
-#include "game_obj.h"
 
 sf::CircleShape & Trash::getCircle()
 {
@@ -19,12 +18,23 @@ const int Trash::getCircleY()
 	return circle.getPosition().y;
 }
 
-Trash::Trash(int x, int y) :
+sf::Sprite & Trash::getSprite()
+{
+	return sprite;
+}
+
+Trash::Trash(int x, int y, float scale) :
 	GameObject(x, y)
 {
-	circle = sf::CircleShape(TRASH_RADIUS);
+	circle = sf::CircleShape(1);
 	circle.setFillColor(sf::Color::Red);
 	circle.setPosition(x_null - TRASH_RADIUS, y_null - TRASH_RADIUS);
+
+	//texture.loadFromFile("pictures/meteor.png");
+
+	//sprite.setTexture	(texture);
+	sprite.setPosition	(x_null - TRASH_RADIUS, y_null - TRASH_RADIUS);
+	sprite.setScale		(scale, scale);
 }
 
 Trash::~Trash()

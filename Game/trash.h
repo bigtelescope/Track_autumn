@@ -3,21 +3,23 @@
 
 #include "game_obj.h"
 
-#define TRASH_RADIUS 20
+#define TRASH_RADIUS 	20
+#define TRASH_SCALE		0.25f  	
 
 class Trash : public GameObject
 {
 	private :
 		sf::CircleShape circle;
 		sf::Texture 	texture;
-		sf::Sprite		sprite;
+		sf::Sprite 		sprite;
 
 	public :
 
-		Trash 	(int x, int y);
+		Trash 	(int x, int y, float scale);
 		~Trash 	();
 
 		sf::CircleShape & 	getCircle 	();
+		sf::Sprite 		&	getSprite	();
 		
 		const int 			getCircleX 	();
 		const int 			getCircleY 	();

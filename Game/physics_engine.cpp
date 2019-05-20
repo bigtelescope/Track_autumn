@@ -13,7 +13,7 @@ int satelliteMove(Satellite & satellite, sf::Clock & clock)
 
 		satellite.getBeta() += DOUBLE_ANGLE(angle);
 
-		satellite.getCircle().setPosition(satellite.getX_Null() + delta_x,
+		satellite.getSprite().setPosition(satellite.getX_Null() + delta_x,
 										  satellite.getY_Null() + delta_y);
 
 		clock.restart();
@@ -24,8 +24,8 @@ int satelliteMove(Satellite & satellite, sf::Clock & clock)
 
 int trashMove(Trash & trash, sf::Time & time)
 {
-	if(abs(trash.getCircleX() + TRASH_RADIUS - EARTH_X) < EARTH_RADIUS &&
-	   abs(trash.getCircleY() + TRASH_RADIUS - EARTH_Y) < EARTH_RADIUS)
+	if(abs(trash.getSprite().getPosition().x + TRASH_RADIUS - EARTH_X) < EARTH_RADIUS &&
+	   abs(trash.getSprite().getPosition().y + TRASH_RADIUS - EARTH_Y) < EARTH_RADIUS)
 	{
 		trash.killObject();
 		return 0;
@@ -37,6 +37,9 @@ int trashMove(Trash & trash, sf::Time & time)
 	float radius = sqrt(delta_x * delta_x + delta_y * delta_y);
 
 	trash.getCircle().setPosition(trash.getX_Null() + (delta_x / radius) * FAST_TIME(time),
+								  trash.getY_Null() + (delta_y / radius) * FAST_TIME(time));
+
+	trash.getSprite().setPosition(trash.getX_Null() + (delta_x / radius) * FAST_TIME(time),
 								  trash.getY_Null() + (delta_y / radius) * FAST_TIME(time));
 
 	return 0;

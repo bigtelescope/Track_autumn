@@ -1,19 +1,22 @@
 #include "head.h"
 
-void storeCreate(std::vector<Trash> & vector)
+void storeCreate(std::vector<Trash> & vector, sf::Texture & texture)
 {
 	for(int i = 0; i < STORE_SIZE / 4; i++)
 	{
-		Trash trash_one(rand()%SCREEN_WIDTH, ZERO		  		);
-		Trash trash_two(rand()%SCREEN_WIDTH, SCREEN_HEIGHT 		);
+		Trash trash_one(rand()%SCREEN_WIDTH, ZERO		  		 , TRASH_SCALE);
+		Trash trash_two(rand()%SCREEN_WIDTH, SCREEN_HEIGHT 		 , TRASH_SCALE);
 
-		Trash trash_three(ZERO,				 rand()%SCREEN_HEIGHT);
-		Trash trash_four (SCREEN_WIDTH,		 rand()%SCREEN_HEIGHT);
+		Trash trash_three(ZERO,				 rand()%SCREEN_HEIGHT, TRASH_SCALE);
+		Trash trash_four (SCREEN_WIDTH,		 rand()%SCREEN_HEIGHT, TRASH_SCALE);
 
 		vector.push_back(trash_one);
 		vector.push_back(trash_two);
 		vector.push_back(trash_three);
 		vector.push_back(trash_four);
+
+		for(int j = i; j < i + 4; j++)
+			vector[j].getSprite().setTexture(texture);
 	}
 }
 
