@@ -1,4 +1,4 @@
-SOURCE_S = functions.cpp physics_engine.cpp trash_obj.cpp main.cpp game_obj.cpp satellite_obj.cpp bullet_obj.cpp
+SOURCE_S = functions.cpp physics_engine.cpp earth.cpp trash_obj.cpp main.cpp game_obj.cpp satellite_obj.cpp bullet_obj.cpp
 CC = g++
 CFLAGS = -Wall -Wextra
 RM = /bin/rm -rf
@@ -9,7 +9,7 @@ main:
 	g++ -c $(SOURCE_S)
 
 objects: 
-	g++ functions.o physics_engine.o trash_obj.o satellite_obj.o bullet_obj.o game_obj.o main.o -o go -lsfml-graphics -lsfml-window -lsfml-system
+	g++ functions.o earth.o physics_engine.o trash_obj.o satellite_obj.o bullet_obj.o game_obj.o main.o -o go -lsfml-graphics -lsfml-window -lsfml-system
 
 clean:  
 	$(RM) *.o pro
